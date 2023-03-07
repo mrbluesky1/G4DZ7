@@ -2,13 +2,16 @@ import React from "react";
 import {useState} from "react";
 
 export default function App() {
-    const [name] = useState(['Арген', 'Максат', 'Жанылай'  ]);
+    const [show, hide] = useState(false)
+
+    const handleClick = () => {
+        hide(!show)
+    }
 
     return(
-        <ul>
-            {name.map(name =>(
-                <li key={name}>{name}</li>
-            ))}
-        </ul>
+        <div className="app">
+            <div className="blue" onClick={handleClick} style={show ? {display: "none"} : {display: "block"}}></div>
+            <div className="green" onClick={handleClick} style={show ? {display: "block"} : {display: "none"}}></div>
+        </div>
     )
 }
